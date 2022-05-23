@@ -173,18 +173,23 @@ public class OverlayService extends Service implements View.OnTouchListener {
                 originalYPos = location[1];
                 offsetX = x-originalXPos;
                 offsetY = y-originalYPos;
+//                Log.e("originalXPos",""+location[0]);
+//                Log.e("originalYPos",""+location[1]);
+//                Log.e("ACTION","DOWN");
             } else if (event.getAction() == MotionEvent.ACTION_MOVE) {
                 float x = event.getRawX();
                 float y = event.getRawY();
                 WindowManager.LayoutParams params = (WindowManager.LayoutParams) flutterView.getLayoutParams();
                 int newX = (int) (x-offsetX+params.width);
                 int newY = (int) (y-offsetY);
-                if (Math.abs(newX - originalXPos) < 1 && Math.abs(newY - originalYPos) < 1 && !moving) {
+//                Log.e("newX",String.valueOf(newX-params.width));
+//                Log.e("newY",""+newY);
+//                Log.e("originalXPos",""+originalXPos);
+//                Log.e("originalYPos",""+originalYPos);
+                if (Math.abs(newX-params.width - originalXPos) < 50 && Math.abs(newY - originalYPos) < 50 && !moving) {
                     return false;
                 }
-
-
-                Log.e("width", String.valueOf( width));
+//                Log.e("ACTION","MOVE");
                 params.x =  width-newX;
                 params.y = newY;
                 windowManager.updateViewLayout(flutterView, params);
