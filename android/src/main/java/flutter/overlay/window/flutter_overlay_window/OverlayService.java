@@ -34,6 +34,7 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class OverlayService extends Service implements View.OnTouchListener {
 
+    private  int LAYOUT_FLAG = 2038;
     private WindowManager windowManager = null;
     private FlutterView flutterView;
     private MethodChannel flutterChannel = new MethodChannel(FlutterEngineCache.getInstance().get(OverlayConstants.CACHED_TAG).getDartExecutor(), OverlayConstants.OVERLAY_TAG);
