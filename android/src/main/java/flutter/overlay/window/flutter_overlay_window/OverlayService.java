@@ -87,7 +87,6 @@ public class OverlayService extends Service implements View.OnTouchListener {
             WindowSetup.messenger.send(message);
         });
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        Log.e("bbbb", "bbbbbbbbbbbbbbbbbbb");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
        } else {
