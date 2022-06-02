@@ -114,6 +114,7 @@ public class OverlayService extends Service implements View.OnTouchListener {
             WindowSetup.setFlag(flag);
             WindowManager.LayoutParams params = (WindowManager.LayoutParams) flutterView.getLayoutParams();
             params.flags = WindowSetup.flag;
+            params.type=WindowManager.LayoutParams.TYPE_PHONE;
             windowManager.updateViewLayout(flutterView, params);
             result.success(true);
         } else {
