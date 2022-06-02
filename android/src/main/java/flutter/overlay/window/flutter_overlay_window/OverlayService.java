@@ -34,7 +34,7 @@ import io.flutter.plugin.common.MethodChannel;
 
 public class OverlayService extends Service implements View.OnTouchListener {
 
-    private  int LAYOUT_FLAG = 2038;
+    private  int LAYOUT_FLAG = 2002;
     private WindowManager windowManager = null;
     private FlutterView flutterView;
     private MethodChannel flutterChannel = new MethodChannel(FlutterEngineCache.getInstance().get(OverlayConstants.CACHED_TAG).getDartExecutor(), OverlayConstants.OVERLAY_TAG);
@@ -87,11 +87,12 @@ public class OverlayService extends Service implements View.OnTouchListener {
             WindowSetup.messenger.send(message);
         });
         windowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-       } else {
-               LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
-       }
+        Log.e("aaaa","aaaaaaaaaaaaaaaaaaaaaaaaa");
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+//       } else {
+//               LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
+//       }
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowSetup.width,
                 WindowSetup.height,
